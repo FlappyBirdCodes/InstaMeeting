@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>InstaMeeting</title>
+</head>
+
+<body onload="reset();">
+
+	<div class="join-container">
+		<header class="join-header">
+			<h1 id="title">Join Room</h1>
+		</header>
+		<main class="join-main">
+			<form id="enterForm" action="/chatRoom" method="POST">
+				<div class="form-control">
+					<label for="username">Username</label>
+					<input type="text" name="username" id="username" placeholder="Enter username" required
+						autocomplete="nope" value="">
+					<label class="room" for="room">Room ID</label>
+					<input type="text" id="roomID" name="roomID" placeholder="Enter room ID" required
+						autocomplete="off">
+					<label class="room" for="roomPassword">Room Password</label>
+					<input type="password" name="roomPassword" id="password" placeholder="Enter room password" required
+						autocomplete="new-password">
+				</div>
+				<button type="submit" id="join" class="btn" onclick="changeAction();">Join Room</button>
+			</form>
+
+			<script>
+				function reset() {
+					document.getElementById('login').value = "";
+					document.getElementById('password').value = "";
+				}
+			</script>
+
+
+			<script>
+				function changeAction() {
+					document.getElementById("enterForm").action += "?username=" + document.getElementById("username").value + "&room=" + document.getElementById("roomID").value;
+				}
+
+			</script>
+
+		</main>
+
+	</div>
+</body>
+
+</html>
